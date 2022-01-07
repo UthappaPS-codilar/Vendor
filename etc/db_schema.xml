@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * db_schema.xml
+ *
+ * A magento 2 module to have Vendors for products
+ *
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="codilar_vendor" resource="default" engine="innodb"
+           comment=" Information Store">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Vendor ID"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="200"
+                comment="Vendor Name"/>
+        <column xsi:type="date" name="dob" nullable="true"  comment="Vendor Dob"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="30"
+                comment="Vendor Email"/>
+        <column xsi:type="varchar" name="address" nullable="true" length="200"
+                comment="Vendor Address"/>
+        <column xsi:type="int" name="is_enable" nullable="true"   padding="10"
+                comment="Is Vendor Enabled"/>
+        <column xsi:type="varchar" name="image" nullable="true" length="500"
+                comment="Vendor Image"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
+

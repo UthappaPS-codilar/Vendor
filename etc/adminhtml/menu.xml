@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+*
+* menu.xml
+*
+* Menu bar for Vendor in menu title and sub menu for Menu
+*
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Codilar_Vendor::vendor" title="vendor" translate="title" module="Codilar_Vendor"
+             sortOrder="75" resource="Codilar_Vendor::vendor"/>
+        <add id="Codilar_Vendor::vendor_listing" title="All vendor" translate="title"
+             module="Codilar_Vendor" sortOrder="10" parent="Codilar_Vendor::vendor"
+             action="vendor/details/index" resource="Codilar_Vendor::vendor"/>
+    </menu>
+</config>

@@ -1,0 +1,22 @@
+<p style="color:red;"> <b>
+        <?php
+        /**
+         * @var Codilar\Vendor\Block\ListVendor $block
+         **/
+
+        $vendorName=$block->getVendorList();
+
+
+
+    foreach ($vendorName as $vendor){
+        ?>
+        <a href="<?php echo $block->getVendorUrl() ?>?ID=<?php echo $vendor['id'] ?>">
+            <li>
+                <?php echo  $vendor['name'] ?>
+            </li>
+        </a>
+    <?php }
+?>
+</b>
+
+</p>

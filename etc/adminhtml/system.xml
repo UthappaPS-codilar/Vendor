@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+* system.xml
+*
+* add the menu for configuration  of stores to enable and disable vendor
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="tab_id" translate="label" sortOrder="110">
+            <label>Vendor</label>
+        </tab>
+        <section id="section_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Enable</label>
+            <tab>tab_id</tab>
+            <resource>VendorName_ModuleName::acl_path</resource>
+            <group id="vendor_status" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Vendor</label>
+                <attribute type="expanded">1</attribute>
+                <field id="is_active" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

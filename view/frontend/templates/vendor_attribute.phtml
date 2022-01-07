@@ -1,0 +1,18 @@
+<p style="color:red;">Sold By:
+    <b>
+        <?php
+        /**
+         * @var Codilar\Vendor\Block $block
+         **/
+
+        $vendorName=$block->getVendorName();
+
+
+        ?>
+        <a href="<?php echo $block->getVendorUrl() ?>?ID=<?php echo  $vendorName['id'] ?>">
+            <?php echo  $vendorName['name'] ?>
+        </a>
+
+    </b>
+
+</p>
