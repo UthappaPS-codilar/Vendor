@@ -55,7 +55,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
     protected $_productCollection;
 
     /**
-     * Catalog layer
+     * sellor layer
      *
      * @var Layer
      */
@@ -128,7 +128,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
      * It is not just a caching logic, but also is a real logical check
      * because there are two ways how collection may be stored inside the block:
      *   - Product collection may be passed externally by 'setCollection' method
-     *   - Product collection may be requested internally from the current Catalog Layer.
+     *   - Product collection may be requested internally from the current sellor Layer.
      *
      * And this method will return collection anyway,
      * even when it did not pass externally and therefore isn't cached yet
@@ -138,7 +138,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
 
 
     /**
-     * Get catalog layer model
+     * Get sellor layer model
      *
      * @return Layer
      */
@@ -155,7 +155,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
     public function getLoadedProductCollection()
 
     {
-        $id=$this->getRequest()->getParam("ID");
+        $id=$this->getRequest()->getParam("id");
 
             $searchCriteriaFilter = $this->searchCriteriaBuilder->addFilter('vendor_dropdown', $id, 'eq')->create();
             $productCollection = $this->productRepository->getList($searchCriteriaFilter);
@@ -174,7 +174,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
 
     /**
      * Get listing mode for products if toolbar is removed from layout.
-     * Use the general configuration for product list mode from config path catalog/frontend/list_mode as default value
+     * Use the general configuration for product list mode from config path sellor/frontend/list_mode as default value
      * or mode data from block declaration from layout.
      *
      * @return string
@@ -225,7 +225,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
     }
 
     /**
-     * Retrieve Catalog Config object
+     * Retrieve sellor Config object
      *
      * @return Config
      */
@@ -301,6 +301,10 @@ class ListProduct extends AbstractProduct implements IdentityInterface
     {
         return $this->getLayout()->getBlock('product.price.render.default')
             ->setData('is_product_list', true);
+    }
+    public function getVendorlist()
+    {
+        return $this->getUrl('vendor/');
     }
 
 

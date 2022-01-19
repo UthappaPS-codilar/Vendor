@@ -13,7 +13,7 @@
         </tab>
         <section id="section_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
-            <label>Enable</label>
+            <label>Vendor</label>
             <tab>tab_id</tab>
             <resource>VendorName_ModuleName::acl_path</resource>
             <group id="vendor_status" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">

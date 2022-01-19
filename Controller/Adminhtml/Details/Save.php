@@ -9,14 +9,15 @@ use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Message\ManagerInterface;
-
+use Magento\Backend\App\Action;
+use Magento\CatalogRule\Controller\Adminhtml\Promo\Catalog;
 /**
  * Class Save
  * @package Codilar\Vendor\Controller\Adminhtml\Details
  */
-class Save implements ActionInterface
+class Save  implements ActionInterface
 {
-    private $resultFactory;
+    protected $resultFactory;
     private $request;
     private $url;
     private $customerRepository;
@@ -36,6 +37,8 @@ class Save implements ActionInterface
         VendorRepositoryInterface $vendorRepository,
         ManagerInterface $manager,
         UrlInterface $url
+
+
     ) {
         $this->resultFactory = $resultFactory;
         $this->request = $request;
@@ -55,6 +58,7 @@ class Save implements ActionInterface
     public function execute()
     {
         $redirectResponse = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+
         $redirectResponse->setUrl($this->url->getUrl('vendor/details/index'));
         try {
             $model = $this->vendorRepository->load($this->request->getParam('id'));
@@ -73,6 +77,10 @@ class Save implements ActionInterface
                     $this->request->getParam('name')
                 ))
             );
+        }
+        if ($this->request->getParam('back')) {
+            $redirectResponse->setUrl($this->url->getUrl('vendor/details/edit/id/'.$this->request->getParam('id')));
+
         }
         return $redirectResponse;
     }

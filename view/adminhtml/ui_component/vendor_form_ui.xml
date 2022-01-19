@@ -17,7 +17,9 @@
     </argument>
     <settings>
         <buttons>
+
             <button name="back" class="Codilar\Vendor\Block\Vendor\BackBtn"/>
+            <button name="save_and_continue" class="Codilar\Vendor\Block\Vendor\SaveAndContinueButton"/>
             <button name="save" class="Codilar\Vendor\Block\Vendor\SaveBtn"/>
         </buttons>
         <namespace>vendor_form_ui</namespace>
@@ -84,7 +86,7 @@
                     <rule name="validate-email" xsi:type="boolean">true</rule>
                 </validation>
                 <dataType>text</dataType>
-                <label translate="true">email</label>
+                <label translate="true">E-mail</label>
                 <visible>true</visible>
                 <dataScope>email</dataScope>
             </settings>
@@ -106,7 +108,7 @@
                     <rule name="required-entry" xsi:type="boolean">false</rule>
                 </validation>
                 <dataType>int</dataType>
-                <label translate="true">isEnable</label>
+                <label translate="true">Is Enable</label>
                 <dataScope>is_enable</dataScope>
             </settings>
             <formElements>
@@ -118,4 +120,44 @@
             </formElements>
         </field>
     </fieldset>
+    <fieldset name="content" sortOrder="10">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Content</label>
+        </settings>
+        <field name="content_heading" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Content Heading</label>
+                <dataScope>content_heading</dataScope>
+            </settings>
+        </field>
+        <field name="content" formElement="wysiwyg">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                </additionalClasses>
+                <label/>
+                <dataScope>content</dataScope>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+    </fieldset>
+
 </form>

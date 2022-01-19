@@ -60,7 +60,7 @@ class Vendor implements DataPatchInterface
             'backend' => '',
             'frontend' => '',
             'sort_order' => 210,
-            'label' => 'select Vendor',
+            'label' => 'Vendor',
             'input' => 'select',
             'class' => '',
             'source' => 'Codilar\Vendor\Model\Source\Config\Vendor\Vendordropdown',

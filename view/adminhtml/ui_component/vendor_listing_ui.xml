@@ -6,7 +6,7 @@
  */
 -->
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">vendor_listing_ui.vendor_listing_ui_data_source</item>
@@ -93,14 +93,19 @@
                     <label translate="true">Delete</label>
                 </settings>
             </action>
-            <action name="edit">
+
+            <action name="disable">
                 <settings>
-                    <callback>
-                        <target>editSelected</target>
-                        <provider>vendor_listing_ui.vendor_listing_ui.cms_page_columns_editor</provider>
-                    </callback>
-                    <type>edit</type>
-                    <label translate="true">Edit</label>
+                    <url path="vendor/details/massDisable"/>
+                    <type>disable</type>
+                    <label translate="true">Disable</label>
+                </settings>
+            </action>
+            <action name="enable">
+                <settings>
+                    <url path="vendor/details/massEnable"/>
+                    <type>enable</type>
+                    <label translate="true">Enable</label>
                 </settings>
             </action>
         </massaction>
@@ -162,7 +167,12 @@
             </settings>
         </column>
 
-        <column name="dob">
+        <column name="Dob">
+            <argument name="data" xsi:type="array">
+
+                <item name="dob" xsi:type="string">DD-MM-Y </item>
+
+            </argument>
             <settings>
                 <filter>text</filter>
                 <editor>
